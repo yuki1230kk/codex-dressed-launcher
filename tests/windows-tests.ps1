@@ -92,3 +92,6 @@ $global:LASTEXITCODE=if ($env:DRESSED_CASE -eq 'verify-failure') { 1 } else { 0 
     $env:DRESSED_FIXTURE=$oldFixture; $env:DRESSED_CASE=$oldCase
     Remove-Item -LiteralPath $fixture -Recurse -Force
 }
+
+# Expected child failure cases leave LASTEXITCODE nonzero. All assertions passed.
+exit 0
