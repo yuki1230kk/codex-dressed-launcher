@@ -35,7 +35,10 @@ $oldFixture=$env:DRESSED_FIXTURE; $oldCase=$env:DRESSED_CASE
 try {
     $scripts=Join-Path $fixture 'engine/scripts'
     New-Item -ItemType Directory -Force -Path $scripts | Out-Null
-    $env:LOCALAPPDATA=$fixture; $env:SystemRoot=$fixture; $env:DRESSED_FIXTURE=$fixture
+    $env:LOCALAPPDATA=$fixture; $env:DRESSED_FIXTURE=$fixture
+    # Native Windows PowerShell needs the real SystemRoot to initialize.
+    # The mocked Start-Process does not execute the constructed supervisor path.
+    if (-not $env:SystemRoot) { $env:SystemRoot=$fixture }
     @'
 function Record([string]$s) { Add-Content -LiteralPath (Join-Path $env:DRESSED_FIXTURE 'calls.txt') -Value $s }
 function Get-DreamSkinCodexInstall { return [pscustomobject]@{Executable='fake-client'} }
@@ -72,11 +75,11 @@ $global:LASTEXITCODE=if ($env:DRESSED_CASE -eq 'verify-failure') { 1 } else { 0 
         $callsPath=Join-Path $fixture 'calls.txt'
         [IO.File]::WriteAllText($callsPath,'')
         $ErrorActionPreference='Continue' # Windows PowerShell wraps native stderr as error records.
-        & $shell -NoProfile -File (Join-Path $root 'windows/Start-SkinOnce.ps1') -ConfigPath $config -ThemeId test-theme 2>&1 | Out-Null
+        $childOutput = & $shell -NoProfile -File (Join-Path $root 'windows/Start-SkinOnce.ps1') -ConfigPath $config -ThemeId test-theme 2>&1
         $actual=$LASTEXITCODE
         $ErrorActionPreference='Stop'
         $expected=if ($case -eq 'success') { 0 } elseif ($case -eq 'running') { 21 } else { 1 }
-        if ($actual -ne $expected) { throw "Worker case $case returned $actual instead of $expected" }
+        if ($actual -ne $expected) { throw "Worker case $case returned $actual instead of $expected. Output: $($childOutput | Out-String)" }
         $calls=@(Get-Content -LiteralPath $callsPath)
         $launches=@($calls | Where-Object { $_ -eq 'launch' }).Count
         $expectedLaunches=if ($case -in @('running','missing-theme')) { 0 } else { 1 }

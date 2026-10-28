@@ -1,6 +1,6 @@
 # 验证记录
 
-2026-10-28 本地准备。没有推送远端，没有执行 GitHub Actions，也没有发布安装包。
+2026-10-28：完成本地准备并公开源码预览。自动检查状态见 [GitHub Actions](https://github.com/yuki1230kk/codex-dressed-launcher/actions/workflows/check.yml)；没有发布安装包。
 
 ## 已完成
 
@@ -16,7 +16,7 @@
 - 上述测试没有退出用户当前客户端，也没有替换个人现有安装。
 - 用户已经确认旧的本机方案可用；这个新整理的可移植源码版本不是同一个构建，不能直接继承端到端验收结论。
 - Windows 的 Store 身份识别、直接启动权限、CDP、WPF 视频播放、多屏 DPI、焦点交接和开始菜单入口尚需 Windows 桌面实测。
-- `.github/workflows/check.yml` 可在未来建仓后跑编译、语法及非图形测试，但本次并未触发它，也没有自动发布步骤。
+- `.github/workflows/check.yml` 在 GitHub 上执行 macOS 编译及 Windows PowerShell 非图形测试，没有自动发布步骤。工作流通过也不等于桌面端到端验收通过。
 
 ## 桌面验收清单（两平台各自执行）
 
