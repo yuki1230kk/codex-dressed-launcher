@@ -1,0 +1,58 @@
+[
+  {
+    "name": "云紫 · GPT 龙娘",
+    "id": "gpt-dragon-lilac-cloud",
+    "file": "gpt-dragon-lilac-cloud.zip",
+    "sha256": "276d681428f44364fb2c87ee63fa1b7e05ef33a34a87c43e73034f2cb6067ed3",
+    "platforms": [
+      "macos"
+    ],
+    "website": "https://dreamskin.cc/gallery",
+    "redistributed": false
+  },
+  {
+    "name": "晨雾山水",
+    "id": "guiming.ink.morning-mist",
+    "file": "ver_018ad695fbb33b12e141.zip",
+    "sha256": "31136ad406d28acd5380ab6020dbf11a9c7ce947bf3bbb4318c51c4676b3f9bb",
+    "platforms": [
+      "macos"
+    ],
+    "website": "https://dreamskin.cc/gallery",
+    "redistributed": false
+  },
+  {
+    "name": "凯尔希·思衡托",
+    "id": "myloves",
+    "file": "ver_1b34eec304abbbb62b09.zip",
+    "sha256": "346e215b957274141c908e4387a722c7175cdf5187c45a6218345d1abf0b35b5",
+    "platforms": [
+      "windows"
+    ],
+    "website": "https://dreamskin.cc/gallery",
+    "redistributed": false
+  },
+  {
+    "name": "普鲸",
+    "id": "exec-99d0dec9-9cdb-4b9e-9314-047a62ba8694",
+    "file": "ver_22684cd6fdb82622d74b.zip",
+    "sha256": "d571241583637c3b739af8276ef429f724087645c600accc1bc4ba20eaff566d",
+    "platforms": [
+      "windows"
+    ],
+    "website": "https://dreamskin.cc/gallery",
+    "redistributed": false
+  },
+  {
+    "name": "紫罗兰永恒花园薇尔莉特",
+    "id": "vot",
+    "file": "ver_6abfbbbbafb851486730.zip",
+    "sha256": "1541c74d273050637a36a755d390cd64fc185da24cb2deb7da572f08fa06808e",
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "website": "https://dreamskin.cc/gallery",
+    "redistributed": false
+  }
+]

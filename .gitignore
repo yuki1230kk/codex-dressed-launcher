@@ -1,0 +1,15 @@
+.DS_Store
+build/
+dist/
+.local/
+__pycache__/
+*.pyc
+*.log
+*.mp4
+*.mov
+*.zip
+*.dmg
+*.exe
+*.app/
+config.json
+PROGRESS.md

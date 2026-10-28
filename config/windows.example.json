@@ -1,0 +1,7 @@
+{
+  "engineRoot": "%LOCALAPPDATA%\\Programs\\CodexDreamSkin\\payload",
+  "video": "%USERPROFILE%\\Videos\\startup.mp4",
+  "themeIDs": [
+    "replace-with-an-installed-theme-id"
+  ]
+}
